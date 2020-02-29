@@ -1,0 +1,21 @@
+// app global css in SCSS form
+@font-face {
+  font-family: IBMPlexMono-Bold;
+  src: url(./fonts/IBMPlexMono-Bold.woff);
+}
+
+@font-face {
+  font-family: IBMPlexMono-Regular;
+  src: url(./fonts/IBMPlexMono-Regular.woff);
+}
+
+.ibm-reg{
+  font-family: 'IBMPlexMono-Regular'
+}
+.ibm-bold{
+  font-family: 'IBMPlexMono-Bold'
+
+}
+.q-card {
+  background: $color2;
+}
