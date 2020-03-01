@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center">
-    <div class="column">
-      <div class="q-pa-sm">
+    <div class="col">
+      <div class="q-pa-sm row-8">
         <q-card>
           <q-card-section>
             <div class="text-h6 ibm-bold" align="center">About Me</div>
@@ -45,8 +45,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.q-card {
 
-  background: $color2;
-}
 </style>

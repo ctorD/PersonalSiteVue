@@ -1,18 +1,104 @@
 <template>
-  <q-page class="flex flex-center">
-    <q-card>
-      <q-card-section>
-        <p>
-          {{resume.basics.name}}
-          </p>
-      </q-card-section>
+  <q-page>
+    <div
+      class="fit row wrap justify-start items-stretch content-stretch row q-pa-sm"
+    >
+      <div class="col-xs-12 col-sm-12 col-md-6 q-pa-sm">
+        <q-card>
+          <q-card-section>
+            <div class="text-h4 ibm-bold" align="center">Profile</div>
 
-    </q-card>
+            <div class="text-h6 ibm-bold">
+              {{ resume.basics.name }}
+            </div>
+            <div>
+              {{ resume.basics.summary }}
+            </div>
+          </q-card-section>
+        </q-card>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 q-pa-sm">
+        <q-card>
+          <q-card-section>
+            <div class="text-h4 ibm-bold" align="center">Education</div>
+
+            <q-list dense>
+              <q-item>
+                <q-item-section
+                  v-for="(skill, index) in resume.education"
+                  :key="index"
+                >
+                  <div>{{ skill.institution }}</div>
+                  <div>
+                    {{ skill.area }} | {{ skill.studyType }} | {{ skill.gpa }}
+                  </div>
+                  <div></div>
+                  <div>{{ skill.start.year }} - {{ skill.end.year }}</div>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-card-section>
+        </q-card>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 q-pa-sm">
+        <q-card>
+          <q-card-section>
+            <div class="text-h4 ibm-bold" align="center">Skills</div>
+
+            <q-list dense v-for="(skill, index) in resume.skills" :key="index">
+              <q-item>
+                <q-item-section>
+                  {{ skill.name }}
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-card-section>
+        </q-card>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 q-pa-sm">
+        <q-card>
+          <q-card-section>
+            <div class="text-h4 ibm-bold" align="center">Papers</div>
+            <q-separator dark></q-separator>
+            <div
+              class="text-h6 ibm-bold"
+              v-for="(paper, index) in resume.publications"
+              :key="index"
+            >
+              <paper-item class="q-pa-sm" :paper="paper"> </paper-item>
+            </div>
+          </q-card-section>
+        </q-card>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 q-pa-sm">
+        <q-card>
+          <q-card-section>
+            <div class="text-h4 ibm-bold" align="center">Work</div>
+
+            <div
+              class="text-h6 ibm-bold"
+              v-for="(jobitem, index) in resume.work"
+              :key="index"
+            >
+              <work-item :job="jobitem"> </work-item>
+            </div>
+          </q-card-section>
+        </q-card>
+      </div>
+    </div>
   </q-page>
 </template>
 
 <script>
 export default {
+  components: {
+    "work-item": require("components/Resume/Work").default,
+    "paper-item": require("components/Resume/Paper").default
+  },
   mounted() {
     this.fetchResume();
   },
@@ -160,6 +246,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

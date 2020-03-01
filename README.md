@@ -1,9 +1,9 @@
-# My Personal site (sandbox)
+# My Personal site
 
 My personal site re-written using Quasar and Vue.js
 
 
-## Installation (sandbox)
+## Installation
 
 ### Install the dependencies
 ```bash

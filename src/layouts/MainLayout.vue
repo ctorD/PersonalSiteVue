@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh lpR lFf">
+  <q-layout view="hHh Lpr lff">
     <q-drawer show-if-above v-model="left" side="left">
       <!-- drawer content -->
 
@@ -10,16 +10,19 @@
         </q-card-section>
 
         <q-card-section class="ibm-reg" align="center">
-          <q-chip>
+          <q-chip clickable @click="openURL('https://www.linkedin.com/in/daniel-clarke-625042188/')">
             <q-avatar>
-              <q-icon color="blue" size="25px" name="fab fa-linkedin" />
+              <q-icon color="blue" size="22px" name="fab fa-linkedin-in" />
             </q-avatar>
             Linkedin
           </q-chip>
-          <q-chip>
+
+          <q-chip clickable @click="openURL('https://github.com/ctorD')">
             <q-avatar>
-              <q-icon color="red" size="25px" name="fab fa-github" />
+            <q-icon color="red" size="24px" name="fab fa-github" />
+
             </q-avatar>
+
             Github
           </q-chip>
         </q-card-section>
@@ -46,7 +49,7 @@
           </q-item-section>
         </q-item>
 
-        <q-item  to="/resume" clickable v-ripple>
+        <q-item to="/resume" clickable v-ripple>
           <q-item-section avatar>
             <q-icon name="send" />
           </q-item-section>
@@ -55,8 +58,6 @@
             Resume
           </q-item-section>
         </q-item>
-
-
       </q-list>
     </q-drawer>
 
@@ -67,11 +68,15 @@
 </template>
 
 <script>
+import { openURL } from "quasar";
 export default {
   data() {
     return {
       left: true
     };
+  },
+  methods: {
+    openURL
   }
 };
 </script>
@@ -92,17 +97,14 @@ export default {
   width: 100%;
   max-width: 350px;
 }
-.center-children {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+
 .q-layout {
   color: white;
   .q-icon {
     color: white;
   }
+}
+.a {
+  outline: none;
 }
 </style>
