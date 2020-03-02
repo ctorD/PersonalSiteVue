@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh Lpr lff">
-    <q-drawer show-if-above v-model="left" side="left">
+    <q-drawer :width="drawWidth" show-if-above v-model="left" side="left">
       <!-- drawer content -->
 
       <q-card class="my-card">
@@ -10,7 +10,12 @@
         </q-card-section>
 
         <q-card-section class="ibm-reg" align="center">
-          <q-chip clickable @click="openURL('https://www.linkedin.com/in/daniel-clarke-625042188/')">
+          <q-chip
+            clickable
+            @click="
+              openURL('https://www.linkedin.com/in/daniel-clarke-625042188/')
+            "
+          >
             <q-avatar>
               <q-icon color="blue" size="22px" name="fab fa-linkedin-in" />
             </q-avatar>
@@ -19,8 +24,7 @@
 
           <q-chip clickable @click="openURL('https://github.com/ctorD')">
             <q-avatar>
-            <q-icon color="red" size="24px" name="fab fa-github" />
-
+              <q-icon color="red" size="24px" name="fab fa-github" />
             </q-avatar>
 
             Github
@@ -29,7 +33,7 @@
       </q-card>
 
       <q-list class="ibm-bold">
-        <q-item to="/" exact clickable v-ripple>
+        <q-item  to="/" exact clickable v-ripple>
           <q-item-section avatar>
             <q-icon name="home" />
           </q-item-section>
@@ -49,7 +53,7 @@
           </q-item-section>
         </q-item>
 
-        <q-item to="/resume" clickable v-ripple>
+        <q-item  to="/resume" clickable v-ripple>
           <q-item-section avatar>
             <q-icon name="send" />
           </q-item-section>
@@ -69,6 +73,15 @@
 
 <script>
 import { openURL } from "quasar";
+import { Screen } from "quasar";
+import {
+  Loading,
+
+  // optional!, for example below
+  // with custom spinner
+  QSpinnerGears
+} from "quasar";
+
 export default {
   data() {
     return {
@@ -76,26 +89,34 @@ export default {
     };
   },
   methods: {
-    openURL
+    openURL,
+
+  },
+  created(){
+    this.$store.dispatch('updateResume')
+  },
+  computed: {
+    drawWidth() {
+      return Screen.width / 5;
+    }
   }
 };
 </script>
 
 <style lang="scss">
 .q-drawer {
-  background-color: rgba(131, 23, 134, 0.4);
+  background-color: rgba(44, 18, 87, 0.8);
 
   .q-card {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.226);
   }
 }
 .q-page-container {
   background: $color2;
-  background-image: url("../statics/img/low_poly_abstract_banner_design_2203.jpg");
+  background-image: url("../statics/img/background.jpg");
 }
 .my-card {
   width: 100%;
-  max-width: 350px;
 }
 
 .q-layout {

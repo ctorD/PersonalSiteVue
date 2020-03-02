@@ -1,30 +1,22 @@
 <template>
-  <div>
-
-    <div class="row ">
-      <p class="text-h6 q-pr-md ">
-        {{ job.company }}
-      </p>
-      -
-      <p class="text-h6 q-pl-md">
-        {{ this.job.position }}
-      </p>
+  <div class="justify-center items-center ">
+    <div class="row text-h6 q-pr-md ">
+      {{ job.company }}
     </div>
-    <p class="text-subtitle2" v-if="job.end.year">
+    <div class=" row text-subtitle1 ">
+      {{ this.job.position }}
+    </div>
+
+    <div class="text-subtitle2" v-if="job.end.year">
       {{ this.job.start.month }} / {{ this.job.start.year }} -
       {{ this.job.end.month }} /
       {{ this.job.end.year }}
-    </p>
-    <p class="text-subtitle2" v-else>
+    </div>
+    <div class="text-subtitle2" v-else>
       {{ this.job.start.month }} / {{ this.job.start.year }} - Now
-    </p>
+    </div>
 
-    <p class="text-body2">
-      {{ this.job.summary }}
-    </p>
-    <q-separator class="q-mt-sm q-mb-sm" dark/>
-
-
+    <q-separator class="q-mt-sm q-mb-sm" dark />
   </div>
 </template>
 

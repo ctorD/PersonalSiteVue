@@ -17,9 +17,14 @@
 
 }
 .q-card {
-  background: $color2;
+  background: rgba(71, 7, 107, 0.377);
   max-width: 10000px;
 }
 .q-page{
   font-family: 'IBMPlexMono-Regular'
 }
+.bg-image {
+  background: $color2;
+  background-image: url("../statics/img/background.jpg");
+}
+

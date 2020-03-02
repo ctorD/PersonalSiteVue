@@ -1,10 +1,16 @@
 <template>
-  <q-page padding>
-    <h2>Projects</h2>
+  <q-page padding class="items-center aboslute-center">
+    <div class="ibm-bold row item-center justify-center text-h2">
+      Projects
+    </div>
+    <div class="row item-center justify-center ">
+      Check out my projects
+    </div>
+    <div class="row">
+      <q-card>
 
-    <q-card>
-      dada
-    </q-card>
+      </q-card>
+    </div>
   </q-page>
 </template>
 
