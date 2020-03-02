@@ -106,25 +106,12 @@ export default {
     "paper-item": require("components/Resume/Paper").default
   },
   computed:{
-    ...mapGetters("resume",["resume"])
-  },
-  async mounted() {
-    this.fetchResume();
+    ...mapGetters(["resume"])
   },
 
-  data() {
-    return {
-      resume: {}
-    };
-  },
+
   methods: {
-    fetchResume() {
-      this.$axios
-        .get("https://gitconnected.com/v1/portfolio/ctord")
-        .then(response => {
-          this.resume = response.data;
-        });
-    }
+
   }
 };
 </script>
